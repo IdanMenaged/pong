@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Settings : MonoBehaviour
+public class LoadSettingsScreen : MonoBehaviour
 {
-    private string gameMode;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +14,8 @@ public class Settings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // back to main game
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            SceneManager.LoadScene(gameMode);
+            SceneManager.LoadScene("Settings");
         }
     }
 }

@@ -8,22 +8,27 @@ using TMPro;
 public class Ball : MonoBehaviour
 {
     public float speed = 5;
-    
-    public TMP_Text score1;
-    public TMP_Text score2;
 
     public float rightBoundry = 4.89f;
     public float leftBoundry = -4.89f;
 
-    public AudioSource audio;
+    public string audioSourcePath;
     public AudioClip[] audioClips;
 
     private Rigidbody2D rb;
+
+    private TMP_Text score1;
+    private TMP_Text score2;
+
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        score1 = GameObject.Find("/UI/Score1").GetComponent<TMP_Text>();
+        score2 = GameObject.Find("/UI/Score2").GetComponent<TMP_Text>();
+        audio = GameObject.Find("/SFX").GetComponent<AudioSource>();
 
         rb.velocity = transform.right * speed * -1;
     }
