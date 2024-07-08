@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private PersistentData persistentData;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        persistentData = GameObject.Find("Persistent Data").GetComponent<PersistentData>();
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Transition(string scene) {
+        persistentData.gameMode = scene;
         SceneManager.LoadScene(scene);
     }
 }

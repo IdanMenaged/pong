@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersistentData : MonoBehaviour
 {
-    private static string gameMode;
+    public string gameMode;
 
     // Start is called before the first frame update
     void Start()

@@ -4,17 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonText : MonoBehaviour
+public class ButtonText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Color hoverColor;
     public TMP_Text text;
-
-    private Color ogColor;
+    public int sizeInc = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        ogColor = text.color;
+        
     }
 
     // Update is called once per frame
@@ -23,11 +21,11 @@ public class ButtonText : MonoBehaviour
         
     }
 
-    void OnPointerEnter(PointerEventData eventData) {
-        text.color = hoverColor;
+    public void OnPointerEnter(PointerEventData eventData) {
+        text.fontSize += sizeInc;
     }
 
-    void OnPointerExit(PointerEventData eventData) {
-        text.color = ogColor;
+    public void OnPointerExit(PointerEventData eventData) {
+        text.fontSize -= sizeInc;
     }
 }

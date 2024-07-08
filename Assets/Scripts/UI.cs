@@ -26,11 +26,15 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name.Equals("Settings")) {
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene.Equals("Singleplayer") || scene.Equals("Multiplayer")) {
+            canvasGroup.alpha = 1;
+        }
+        else if (scene.Equals("Settings")) {
             canvasGroup.alpha = 0;
         }
         else {
-            canvasGroup.alpha = 1;
+            Destroy(gameObject);
         }
     }
 }
